@@ -18,7 +18,7 @@ export class DriveService {
 
     async uploadFile (fileName, fileType, file) {
         try {
-            const response = await this.drive.files.create({
+            await this.drive.files.create({
                 requestBody: {
                     name: fileName,
                     mimeType: fileType,

@@ -1,7 +1,25 @@
-export default function Home() {
+import { MainService } from "../src/services/frontend/MainService";
+import {useRef} from "react";
+
+function Home () {
+  const file = useRef(null)
+
+  const handleClick = () => {
+      if (file) {
+          const googleDriveService = MainService.getInstance().getDriveService();
+
+          let mainFile = file.current.files[0];
+          console.log(mainFile)
+          googleDriveService.uploadFile(mainFile.name, mainFile.type, mainFile)
+      }
+  }
+
   return (
-    <div className="w-fit m-auto bg-red">
-      <h1>hello</h1>
+    <div className="w-full h-screen bg-blue-200 flex items-center justify-center text-white">
+        <input type="file" className="px-5 py-2 rounded-[12px] mr-5 bg-blue-400 cursor-pointer hover:bg-blue-600" ref={ file }/>
+        <button className="px-5 py-2 bg-green-400 cursor-pointer rounded-[12px] hover:bg-green-600" onClick={ handleClick }>Send</button>
     </div>
   )
 }
+
+export default Home;

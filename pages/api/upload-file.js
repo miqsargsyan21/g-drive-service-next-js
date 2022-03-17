@@ -1,23 +1,42 @@
 import { MainService } from "../../src/services/backend/MainService";
+import middleware from'./middleware/middleware';
+import nextConnect from 'next-connect';
 
-export default async function uploadFile (req, res) {
+const handler = nextConnect();
+handler.use(middleware);
+
+handler.post(async (req, res) => {
     const googleDriveService = MainService.getInstance().getDrive();
+    const file = req.files.file[0];
 
-    const {fileName, fileType, file} = JSON.parse(req.body);
-    console.log(JSON.parse(req.body))
-    if (fileName && fileType && file !== undefined) {
+    if (file !== undefined) {
         try {
-            const response = googleDriveService.uploadFile({
-                fileName: fileName,
-                fileType: fileType,
-                file: file
-            });
+            const responseFolder = await googleDriveService.createFolder({name: req.body.name[0]});
 
-            res.status(201).json(response);
+            if (responseFolder.status === 200) {
+                const response = await googleDriveService.uploadFile({
+                    fileName: file.originalFilename,
+                    fileType: file.headers["content-type"],
+                    file: file,
+                    folderID: responseFolder.folderID,
+                });
+
+                res.status(201).json(response);
+            } else {
+                res.status(401).json(responseFolder);
+            }
         } catch (e) {
             res.status(404).json(e);
         }
     } else {
         res.status(401).json({message: 'All inputs are required'});
     }
-}
+});
+
+export const config = {
+    api: {
+        bodyParser: false
+    }
+};
+
+export default handler;

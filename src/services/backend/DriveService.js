@@ -1,4 +1,5 @@
 import { google } from "googleapis";
+import fs from "fs";
 
 export class DriveService {
     constructor () {
@@ -16,20 +17,45 @@ export class DriveService {
         });
     }
 
-    async uploadFile ({fileName, fileType, file}) {
+    async createFolder({ name }) {
         try {
-            await this.drive.files.create({
+            const folder = await this.drive.files.create({
+                resource: {
+                    name: `${name}`,
+                    mimeType: 'application/vnd.google-apps.folder'
+                }
+            });
+
+            return {
+                status: 200,
+                folderID: folder.data.id,
+            };
+        } catch (e) {
+            return {
+                status: 400,
+                message: e.message,
+            };
+        }
+    }
+
+    async uploadFile ({fileName, fileType, file, folderID}) {
+        try {
+            return await this.drive.files.create({
                 requestBody: {
                     name: fileName,
                     mimeType: fileType,
+                    parents: [folderID]
                 },
                 media: {
-                    body: file,
+                    body: fs.createReadStream(`${file.path}`),
                     mimeType: fileType,
                 }
             })
         } catch (e) {
-            console.log(e.message);
+            return {
+                status: 400,
+                message: e.message,
+            };
         }
     }
 }

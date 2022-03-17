@@ -15,7 +15,7 @@ export class ApiService extends HttpService {
     return super.post(path, headers, body, query);
   }
 
-  uploadFile(fileName, fileType, file){
+  uploadFile({fileName, fileType, file}){
     return this.post(
       PATHS.UPLOAD_FILE, {
         'Content-Type': 'multipart/form-data',

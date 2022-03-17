@@ -2,12 +2,16 @@ import { MainService } from "../../src/services/backend/MainService";
 
 export default async function uploadFile (req, res) {
     const googleDriveService = MainService.getInstance().getDrive();
-    console.log(req.body)
-    const {fileName, fileType, file} = req.body;
 
-    if (fileName && fileType && file) {
+    const {fileName, fileType, file} = JSON.parse(req.body);
+    console.log(JSON.parse(req.body))
+    if (fileName && fileType && file !== undefined) {
         try {
-            const response = googleDriveService.uploadFile(fileName, fileType, file);
+            const response = googleDriveService.uploadFile({
+                fileName: fileName,
+                fileType: fileType,
+                file: file
+            });
 
             res.status(201).json(response);
         } catch (e) {

@@ -9,8 +9,13 @@ function Home () {
           const googleDriveService = MainService.getInstance().getDriveService();
 
           let mainFile = file.current.files[0];
-          console.log(mainFile)
-          googleDriveService.uploadFile(mainFile.name, mainFile.type, mainFile)
+          console.log(mainFile);
+
+          googleDriveService.uploadFile({
+              fileName: mainFile.name,
+              fileType: mainFile.type,
+              file: mainFile,
+          });
       }
   }
 

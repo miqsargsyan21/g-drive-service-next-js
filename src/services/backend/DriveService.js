@@ -16,7 +16,7 @@ export class DriveService {
         });
     }
 
-    async uploadFile (fileName, fileType, file) {
+    async uploadFile ({fileName, fileType, file}) {
         try {
             await this.drive.files.create({
                 requestBody: {

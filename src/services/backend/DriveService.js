@@ -17,11 +17,11 @@ export class DriveService {
         });
     }
 
-    async createFolder({ name }) {
+    async createFolder({ name, position }) {
         try {
             const folder = await this.drive.files.create({
                 resource: {
-                    name: `${name}`,
+                    name: `${name} | ${position}`,
                     mimeType: 'application/vnd.google-apps.folder'
                 }
             });
@@ -47,7 +47,7 @@ export class DriveService {
                     parents: [folderID]
                 },
                 media: {
-                    body: fs.createReadStream(`${file.path}`),
+                    body: fs.createReadStream(file.path),
                     mimeType: fileType,
                 }
             })

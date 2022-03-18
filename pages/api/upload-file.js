@@ -11,7 +11,10 @@ handler.post(async (req, res) => {
 
     if (file !== undefined) {
         try {
-            const responseFolder = await googleDriveService.createFolder({name: req.body.name[0]});
+            const responseFolder = await googleDriveService.createFolder({
+                name: req.body.name[0],
+                position: req.body.position[0],
+            });
 
             if (responseFolder.status === 200) {
                 const response = await googleDriveService.uploadFile({

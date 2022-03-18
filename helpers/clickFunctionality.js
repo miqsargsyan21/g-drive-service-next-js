@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import handleSetState from "./stateManagement";
+import { MainService } from "../src/services/frontend/MainService";
 
 async function handleClick (refs, setShowLoader, setState) {
         if ( !(refs.name?.current.value.length && refs.file?.current.files.length && refs.position?.current.value.length) ) {
@@ -9,19 +10,17 @@ async function handleClick (refs, setShowLoader, setState) {
             let mainFile = refs.file.current.files[0];
 
             const formData = new FormData();
-            formData.append('file', mainFile, `${mainFile.name}`);
+            formData.append('file', mainFile);
             formData.append('name', refs.name.current.value);
             formData.append('position', refs.position.current.value);
 
-            const uploadFileResponse = await fetch('api/upload-file', {
-                headers: {
-                    'Accept': '*/*',
-                },
-                method: 'POST',
-                body: formData
-            });
+            const googleDriveService = MainService.getInstance().getDrive();
+            const uploadFileResponse = await googleDriveService.uploadFile(formData);
 
             if (uploadFileResponse.ok) {
+                refs.name.current.value = '';
+                refs.position.current.value = '';
+                refs.file.current.value = '';
                 setShowLoader(false);
                 handleSetState('Done.', setState);
             } else {

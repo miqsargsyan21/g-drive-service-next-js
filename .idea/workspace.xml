@@ -2,18 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de59d446-32ba-4b82-a83b-4fe5b5dbd9c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/helpers/clickFunctionality.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helpers/stateManagement.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/loader3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Form/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Loader/index.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/frontend/DriveService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/frontend/MainService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/upload-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/upload-file.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/backend/DriveService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/backend/DriveService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/clickFunctionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/clickFunctionality.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +74,7 @@
       <updated>1647420896398</updated>
       <workItem from="1647420905795" duration="12840000" />
       <workItem from="1647497619175" duration="19070000" />
-      <workItem from="1647586468291" duration="6124000" />
+      <workItem from="1647586468291" duration="8418000" />
     </task>
     <servers />
   </component>

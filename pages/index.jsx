@@ -6,7 +6,7 @@ function Home () {
     const [showLoader, setShowLoader] = useState(false);
 
   return (
-        <div className="w-full h-screen bg-blue-200 flex items-center justify-center text-white">
+        <div className="w-full h-screen bg-gray-200 flex items-center justify-center text-white">
             <Form setShowLoader={ setShowLoader } />
             <Loader showLoader={ showLoader } />
         </div>

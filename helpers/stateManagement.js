@@ -9,5 +9,5 @@ export default function handleSetState (message, setState) {
             show: false,
             message: '',
         });
-    }, 1000);
+    }, 1500);
 };

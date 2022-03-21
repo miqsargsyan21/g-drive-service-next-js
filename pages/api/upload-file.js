@@ -5,15 +5,16 @@ import nextConnect from 'next-connect';
 const handler = nextConnect();
 handler.use(middleware);
 
-handler.post(async (req, res) => {
+handler.post(async (req, { status }) => {
     const googleDriveService = MainService.getInstance().getDrive();
-    const file = req.files.file[0];
+    const [ file ] = req["files"].file;
+    const requestBody = req["body"];
 
     if (file !== undefined) {
         try {
             const responseFolder = await googleDriveService.createFolder({
-                name: req.body.name[0],
-                position: req.body.position[0],
+                name: requestBody.name[0],
+                position: requestBody.position[0],
             });
 
             if (responseFolder.status === 200) {
@@ -24,21 +25,21 @@ handler.post(async (req, res) => {
                     folderID: responseFolder.folderID,
                 });
 
-                res.status(201).json(response);
+                status(200).json(response);
             } else {
-                res.status(401).json(responseFolder);
+                status(400).json(responseFolder);
             }
         } catch (e) {
-            res.status(404).json(e);
+            status(400).json(e);
         }
     } else {
-        res.status(401).json({message: 'All inputs are required'});
+        status(400).json({ message: 'All inputs are required' });
     }
 });
 
 export const config = {
     api: {
-        bodyParser: false
+        bodyParser: false,
     }
 };
 

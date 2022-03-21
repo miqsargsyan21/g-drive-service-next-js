@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de59d446-32ba-4b82-a83b-4fe5b5dbd9c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/frontend/DriveService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/frontend/MainService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/helpers/clickFunctionality.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/clickFunctionality.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helpers/stateManagement.js" beforeDir="false" afterPath="$PROJECT_DIR$/helpers/stateManagement.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/upload-file.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/upload-file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Form/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Form/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Loader/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Loader/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/backend/DriveService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/backend/DriveService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/backend/MainService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/backend/MainService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/frontend/DriveService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/frontend/DriveService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/frontend/MainService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/frontend/MainService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,11 +35,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="16.13.2" />
     <property name="javascript.nodejs.core.library.typings.version" value="16.11.26" />
+    <property name="js.last.introduce.type" value="LET" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pages/api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="advanced.settings" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -74,7 +82,9 @@
       <updated>1647420896398</updated>
       <workItem from="1647420905795" duration="12840000" />
       <workItem from="1647497619175" duration="19070000" />
-      <workItem from="1647586468291" duration="8418000" />
+      <workItem from="1647586468291" duration="8950000" />
+      <workItem from="1647844736077" duration="4825000" />
+      <workItem from="1647849954641" duration="2883000" />
     </task>
     <servers />
   </component>

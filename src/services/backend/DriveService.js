@@ -6,7 +6,7 @@ export class DriveService {
         this.oauth2Client = new google.auth.OAuth2(
             process.env.CLIENT_ID,
             process.env.CLIENT_SECRET,
-            process.env.REDIRECT_URI
+            process.env.REDIRECT_URI,
         );
 
         this.oauth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
@@ -15,14 +15,14 @@ export class DriveService {
             version: 'v3',
             auth: this.oauth2Client,
         });
-    }
+    };
 
     async createFolder({ name, position }) {
         try {
             const folder = await this.drive.files.create({
                 resource: {
                     name: `${name} | ${position}`,
-                    mimeType: 'application/vnd.google-apps.folder'
+                    mimeType: 'application/vnd.google-apps.folder',
                 }
             });
 
@@ -36,26 +36,26 @@ export class DriveService {
                 message: e.message,
             };
         }
-    }
+    };
 
-    async uploadFile ({fileName, fileType, file, folderID}) {
+    async uploadFile ({ fileName, fileType, file, folderID }) {
         try {
             return await this.drive.files.create({
                 requestBody: {
                     name: fileName,
                     mimeType: fileType,
-                    parents: [folderID]
+                    parents: [folderID],
                 },
                 media: {
                     body: fs.createReadStream(file.path),
                     mimeType: fileType,
                 }
-            })
+            });
         } catch (e) {
             return {
                 status: 400,
                 message: e.message,
             };
         }
-    }
+    };
 }

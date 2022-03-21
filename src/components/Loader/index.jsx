@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 
@@ -15,6 +16,6 @@ function Loader ({ showLoader }) {
 
 Loader.propTypes = {
     showLoader: PropTypes.bool.isRequired,
-}
+};
 
-export default Loader;
+export default React.memo(Loader);

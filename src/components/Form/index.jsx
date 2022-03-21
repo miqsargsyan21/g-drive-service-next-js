@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 import { useRef, useState } from "react";
 import handleClick from "../../../helpers/clickFunctionality";
@@ -8,11 +9,11 @@ function Form ({ setShowLoader }) {
         message: '',
     });
 
-    const [refs] = useState({
+    const refs = {
         file: useRef(null),
         name: useRef(null),
         position: useRef(null),
-    });
+    };
 
     return (
         <div className="relative flex flex-col gap-1">
@@ -42,4 +43,4 @@ Form.propTypes = {
     setShowLoader: PropTypes.func.isRequired,
 };
 
-export default Form;
+export default React.memo(Form);

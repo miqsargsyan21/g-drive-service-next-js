@@ -1,8 +1,7 @@
-import PropTypes from "prop-types";
 import handleSetState from "./stateManagement";
 import { MainService } from "../src/services/frontend/MainService";
 
-async function handleClick (refs, setShowLoader, setState) {
+export default async function handleClick (refs, setShowLoader, setState) {
     if ( !(refs.name?.current.value.length && refs.file?.current.files.length && refs.position?.current.value.length) ) {
         handleSetState("Please enter all data.", setState);
     } else if (refs.file) {
@@ -17,9 +16,10 @@ async function handleClick (refs, setShowLoader, setState) {
         const uploadFileResponse = await googleDriveService.uploadFile(formData);
 
         if (uploadFileResponse.ok) {
-            refs.name.current.value = '';
-            refs.position.current.value = '';
-            refs.file.current.value = '';
+            Object.values(refs).map((val => {
+                val.current.value = '';
+            }))
+
             setShowLoader(false);
             handleSetState('Done.', setState);
         } else {
@@ -27,12 +27,4 @@ async function handleClick (refs, setShowLoader, setState) {
             handleSetState('Something went wrong.', setState);
         }
     }
-}
-
-handleClick.propTypes = {
-    refs: PropTypes.object.isRequired,
-    setState: PropTypes.func.isRequired,
-    setShowLoader: PropTypes.func.isRequired,
-}
-
-export default handleClick;
+};

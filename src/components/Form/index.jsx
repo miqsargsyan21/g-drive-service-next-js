@@ -31,7 +31,7 @@ function Form () {
             <Button setState={setState} refs={refs} />
             {
                 state.show
-                &&
+                    &&
                 <span className={`px - 5 py-2 absolute top-[110%] w-full text-center rounded-[12px] ${state.message === "Done." ? "bg-green-500" : "bg-yellow-500"}`}>{state.message}</span>
             }
         </div>

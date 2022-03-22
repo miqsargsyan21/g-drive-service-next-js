@@ -8,7 +8,7 @@ export default async function handleClick (refs, setShowLoader, setState) {
 
     if ( !(name && file && position) ) {
         handleSetState("Please enter all data.", setState);
-    } else if (refs.file) {
+    } else {
         setShowLoader(true);
         
         const formData = new FormData();
@@ -18,16 +18,15 @@ export default async function handleClick (refs, setShowLoader, setState) {
 
         const googleDriveService = MainService.getInstance().getDrive();
         const uploadFileResponse = await googleDriveService.uploadFile(formData);
+        setShowLoader(false);
 
         if (uploadFileResponse.ok) {
             Object.values(refs).map((val => {
                 val.current.value = '';
             }));
 
-            setShowLoader(false);
             handleSetState('Done.', setState);
         } else {
-            setShowLoader(false);
             handleSetState('Something went wrong.', setState);
         }
     }
